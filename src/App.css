@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+ .appBar {
+  position: 'relative',
+  }
+.layout {
+  width: 100%;
+  }
+  .paper {
+    width: 70%;
+    margin: 8rem auto;
+    padding: 40px;
+  }
+  .stepper {
+  padding: 10em;
+  }
+  .buttons {
+    margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  }
+  .button {
+  margin-top: 20em;
+  margin: 0 auto;
+  margin-left: 10em;
+  }
+.form-controll {
+  width: 300px;
+  margin: 20px;
+}
+
