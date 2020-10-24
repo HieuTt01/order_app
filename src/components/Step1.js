@@ -10,21 +10,22 @@ import Select from '@material-ui/core/Select';
 import {InputLabel} from '@material-ui/core';
 
 
-class Step1Form extends React.Component {
+function Step1Form(props) {
 
-    displayItems = items => (
-         items.map( item => (
-            <MenuItem
-                key={item}
-                value={item}
-            >{item}</MenuItem>
-        ))
-    )
+    function displayItems(items) {
+        return (
+             items.map( item => (
+                <MenuItem
+                    key={item}
+                    value={item}
+                >{item}</MenuItem>
+            ))
+        )
+    }
     
-    render() {
         const meals = ["breakfast", "lunch", "dinner"];
         const peoples = [1,2,3,4,5,6,7,8,9,10];
-        const {meal, numberOfPeople} = this.props.orderInfor;
+        const {meal, numberOfPeople} = props.orderInfor;
 
         return (
             <React.Fragment>
@@ -36,9 +37,9 @@ class Step1Form extends React.Component {
                             name="meal"
                             required
                             defaultValue ={meal ? meal: ""}
-                            onChange={(event) => this.props.handleChange(event)}
+                            onChange={(event) => props.handleChange(event)}
                         >
-                            {this.displayItems(meals)}
+                            {displayItems(meals)}
                          </Select>
                         </FormControl>
                         <FormControl style={{margin: "20px"}} className="form-controll"> 
@@ -47,16 +48,15 @@ class Step1Form extends React.Component {
                             name="numberOfPeople"
                             type="number"
                             defaultValue ={numberOfPeople ? numberOfPeople: ""}
-                            onChange={(event) => this.props.handleChange(event)}
+                            onChange={(event) => props.handleChange(event)}
                             inputProps={{ min: 1, max: 10}}
                         >
-                        {this.displayItems(peoples)}
+                        {displayItems(peoples)}
                          </Select>
                         </FormControl>
                     </Grid>
                 </Grid>
             </React.Fragment>
         );
-    }
 }
 export default Step1Form;
